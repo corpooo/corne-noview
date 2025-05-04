@@ -119,7 +119,7 @@
             bindings = <
 &trans  &trans  &trans    &trans    &trans     &trans       &trans    &kp LG(LEFT)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LG(RIGHT)  &trans
 &trans  &trans  &kp LALT  &kp LGUI  &kp LSHFT  &trans       &kp LEFT  &kp DOWN      &kp UP        &kp RIGHT      &trans         &trans
-&trans  &trans  &trans    &trans    &trans     &trans       &trans    &trans        &kp LA(BSPC)  &kp LA(DEL)    &trans         &trans
+&trans  &trans  &trans    &trans    &trans     &trans       &trans    &kp LG(BSPC)  &kp LA(BSPC)  &kp LA(DEL)    &kp LG(DEL)    &trans
                           &kp DEL   &kp BSPC   &kp LCTRL    &trans    &trans        &trans
             >;
 
