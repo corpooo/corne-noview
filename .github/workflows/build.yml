@@ -1,25 +1,5 @@
-# .github/workflows/build.yml (or wherever your calling workflow is)
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  get_timestamp_job:
-    runs-on: ubuntu-latest
-    outputs:
-      timestamp_output: ${{ steps.timestamp_step.outputs.timestamp }}
-    steps:
-      - name: Get Timestamp
-        id: timestamp_step
-        run: |
-          TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
-          echo "timestamp=${TIMESTAMP}" >> $GITHUB_OUTPUT
-          echo "BUILD_TIMESTAMP=${TIMESTAMP}" >> $GITHUB_ENV # Optional env var
-
-  build_job: # <-- This is the job identifier
-    runs-on: ubuntu-latest
-    needs: get_timestamp_job
-    # uses and with must be indented directly under 'build_job:'
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main # <--- uses is here
-    with: # <--- with is here, at the same indentation level as uses
-      archive_name: firmware-${{ needs.get_timestamp_job.outputs.timestamp_output }}
-      # ... other inputs ...
-    secrets: inherit
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
