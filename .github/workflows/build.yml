@@ -4,5 +4,5 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
     with:
-      archive_name: firmware-${{ github.run_started_at }}-${{ github.sha.substring(0, 7) }}
+      archive_name: firmware-${{ github.run_started_at }}-${{ format('{0}', github.sha).substring(0, 7) }}
     secrets: inherit
