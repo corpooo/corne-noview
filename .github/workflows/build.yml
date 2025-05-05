@@ -1,34 +1,25 @@
-# .github/workflows/your-workflow-file.yml
+# .github/workflows/build.yml (or wherever your calling workflow is)
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  get_timestamp: # Job 1: Gets the timestamp
+  get_timestamp_job:
     runs-on: ubuntu-latest
     outputs:
-      # Define an output for the timestamp
       timestamp_output: ${{ steps.timestamp_step.outputs.timestamp }}
     steps:
       - name: Get Timestamp
-        id: timestamp_step # Give the step an ID to reference its outputs
+        id: timestamp_step
         run: |
-          # Get the timestamp in a filename-safe ISO-like format
           TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
-          # Set the timestamp as a step output using GITHUB_OUTPUT (required for job outputs)
           echo "timestamp=${TIMESTAMP}" >> $GITHUB_OUTPUT
-          # Also set as env var for clarity, though output is what matters for passing between jobs
-          echo "BUILD_TIMESTAMP=${TIMESTAMP}" >> $GITHUB_ENV
+          echo "BUILD_TIMESTAMP=${TIMESTAMP}" >> $GITHUB_ENV # Optional env var
 
-  build: # Job 2: Calls the reusable workflow
+  build_job: # <-- This is the job identifier
     runs-on: ubuntu-latest
-    # This job needs the timestamp from the first job
-    needs: get_timestamp
-    # Call the reusable workflow directly under the job key
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      # Pass the timestamp output from the previous job as an input
-      archive_name: firmware-${{ needs.get_timestamp.outputs.timestamp_output }}
-      # ... include any other necessary inputs from the ZMK workflow ...
-      # build_matrix_path: your/matrix/path.yaml
-      # config_path: your/config/dir
-      # fallback_binary: bin
-    secrets: inherit # Inherit secrets
+    needs: get_timestamp_job
+    # uses and with must be indented directly under 'build_job:'
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main # <--- uses is here
+    with: # <--- with is here, at the same indentation level as uses
+      archive_name: firmware-${{ needs.get_timestamp_job.outputs.timestamp_output }}
+      # ... other inputs ...
+    secrets: inherit
