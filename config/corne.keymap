@@ -18,7 +18,7 @@
         };
 
         esc_combo {
-            bindings = <&kp ESC>;
+            bindings = <&cmd_sft_esc RS(RGUI) ESC>;
             key-positions = <19 20>;
         };
     };
@@ -74,6 +74,20 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HMR_SEMI";
             bindings = <&kp>, <&rev_semi>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <100>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <36 37 38 39 40 41 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29>;
+        };
+
+        cmd_sft_esc: cmd_sft_esc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CMD_SFT_ESC";
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
