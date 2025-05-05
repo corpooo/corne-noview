@@ -1,5 +1,17 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      timestamp: ${{ steps.timestamp.outputs.value }}
+    steps:
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "value=$(date -u +'%Y-%m-%dT%H-%M-%SZ')" >> $GITHUB_OUTPUT
+
   build:
+    needs: prepare
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      archive_name: firmware-${{ needs.prepare.outputs.timestamp }}
