@@ -1,8 +1,19 @@
+# .github/workflows/your-workflow-file.yml
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      archive_name: firmware-${{ github.run_started_at }}
-    secrets: inherit
+  build: # This is your job
+    runs-on: ubuntu-latest # Ensure this runner can execute shell commands
+    steps:
+      # Step 1: Get the timestamp in a filename-safe ISO-like format
+      - name: Get ISO Timestamp for Filename
+        run: echo "BUILD_TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+        # Using: YYYY-MM-DD_HH-MM-SS
+
+      # Step 2: Call the ZMK reusable workflow, using the timestamp env var in the input
+      - name: Run ZMK Build
+        uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+        with:
+          # Pass the base name and append the timestamp environment variable
+          archive_name: firmware-${{ env.BUILD_TIMESTAMP }}
+        secrets: inherit # Inherit secrets like the ZMK_TOKEN if needed
