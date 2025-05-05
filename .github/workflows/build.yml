@@ -2,18 +2,33 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build: # This is your job
-    runs-on: ubuntu-latest # Ensure this runner can execute shell commands
+  get_timestamp: # Job 1: Gets the timestamp
+    runs-on: ubuntu-latest
+    outputs:
+      # Define an output for the timestamp
+      timestamp_output: ${{ steps.timestamp_step.outputs.timestamp }}
     steps:
-      # Step 1: Get the timestamp in a filename-safe ISO-like format
-      - name: Get ISO Timestamp for Filename
-        run: echo "BUILD_TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
-        # Using: YYYY-MM-DD_HH-MM-SS
+      - name: Get Timestamp
+        id: timestamp_step # Give the step an ID to reference its outputs
+        run: |
+          # Get the timestamp in a filename-safe ISO-like format
+          TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
+          # Set the timestamp as a step output using GITHUB_OUTPUT (required for job outputs)
+          echo "timestamp=${TIMESTAMP}" >> $GITHUB_OUTPUT
+          # Also set as env var for clarity, though output is what matters for passing between jobs
+          echo "BUILD_TIMESTAMP=${TIMESTAMP}" >> $GITHUB_ENV
 
-      # Step 2: Call the ZMK reusable workflow, using the timestamp env var in the input
-      - name: Run ZMK Build
-        uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-        with:
-          # Pass the base name and append the timestamp environment variable
-          archive_name: firmware-${{ env.BUILD_TIMESTAMP }}
-        secrets: inherit # Inherit secrets like the ZMK_TOKEN if needed
+  build: # Job 2: Calls the reusable workflow
+    runs-on: ubuntu-latest
+    # This job needs the timestamp from the first job
+    needs: get_timestamp
+    # Call the reusable workflow directly under the job key
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      # Pass the timestamp output from the previous job as an input
+      archive_name: firmware-${{ needs.get_timestamp.outputs.timestamp_output }}
+      # ... include any other necessary inputs from the ZMK workflow ...
+      # build_matrix_path: your/matrix/path.yaml
+      # config_path: your/config/dir
+      # fallback_binary: bin
+    secrets: inherit # Inherit secrets
