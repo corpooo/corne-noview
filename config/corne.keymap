@@ -100,7 +100,7 @@
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y       &kp U         &kp I        &kp O        &kp P              &kp END
 &lt 2 ESC   &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H       &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
 &lt 3 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &kp COMMA    &kp DOT      &kp FSLH           &lt 3 RBKT
-                                       &lt 3 TAB    &lt 4 RET     &lt 2 SPACE    &lt 1 BSPC  &lt 4 ESC     &kp DEL
+                                       &lt 3 ESC    &lt 4 TAB     &lt 2 SPACE    &lt 1 BSPC  &lt 4 RET     &kp DEL
             >;
         };
 
