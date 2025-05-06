@@ -21,6 +21,11 @@
             bindings = <&cmd_sft_esc RS(RGUI) ESC>;
             key-positions = <19 20>;
         };
+
+        magic_layer_combo {
+            bindings = <&mo 4>;
+            key-positions = <38 39>;
+        };
     };
 
     behaviors {
@@ -114,7 +119,7 @@
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y       &kp U         &kp I        &kp O        &kp P              &kp END
 &lt 2 ESC   &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H       &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
 &lt 3 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &kp COMMA    &kp DOT      &kp FSLH           &lt 3 RBKT
-                                       &lt 3 ESC    &lt 4 TAB     &lt 2 SPACE    &lt 1 BSPC  &lt 4 RET     &kp DEL
+                                       &lt 3 ESC    &lt 2 TAB     &lt 1 SPACE    &lt 1 BSPC  &lt 2 RET     &lt 3 DEL
             >;
         };
 
@@ -147,10 +152,10 @@
 
         nums_layer {
             bindings = <
-&trans  &trans  &kp N9  &kp N8  &kp N7  &trans    &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
-&trans  &trans  &kp N6  &kp N5  &kp N4  &trans    &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans  &trans  &kp N3  &kp N2  &kp N1  &trans    &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                        &trans  &kp N0  &trans    &trans  &kp N0  &trans
+&trans  &trans  &kp N9        &kp N8        &kp N7         &trans    &trans  &kp N7         &kp N8        &kp N9        &trans  &trans
+&trans  &trans  &hml LALT N6  &hml LCMD N5  &hml LSHFT N4  &trans    &trans  &hmr RSHFT N4  &hmr RCMD N5  &hmr RALT N6  &trans  &trans
+&trans  &trans  &kp N3        &kp N2        &kp N1         &trans    &trans  &kp N1         &kp N2        &kp N3        &trans  &trans
+                              &trans        &kp N0         &trans    &trans  &kp N0         &trans
             >;
 
             label = "Numbers";
