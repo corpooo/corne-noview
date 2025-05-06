@@ -18,17 +18,17 @@
             key-positions = <16 19>;
         };
 
-        bscp_combo {
+        bscp_combo_r {
             bindings = <&hmr RS(RGUI) BSPC>;
             key-positions = <19 20>;
         };
 
-        esc_combo {
-            bindings = <&hml LS(LGUI) ESC>;
+        bscp_combo_l {
+            bindings = <&hml LS(LGUI) BSPC>;
             key-positions = <15 16>;
         };
 
-        ret_combo {
+        ret_combo_r {
             bindings = <&hml RG(RALT) RET>;
             key-positions = <20 21>;
         };
@@ -36,6 +36,11 @@
         nums_lay_combo {
             bindings = <&mo 3>;
             key-positions = <38 39>;
+        };
+
+        ret_combo_l {
+            bindings = <&hml LS(LGUI) RET>;
+            key-positions = <15 14>;
         };
     };
 
@@ -164,7 +169,7 @@
 &trans  &kp PIPE         &kp AT          &kp UNDER       &kp DLLR         &kp PRCNT    &kp CARET  &kp PLUS         &kp ASTERISK    &kp GRAVE       &trans           &trans
 &trans  &hml LCTRL AMPS  &hml LALT LPAR  &hml LGUI LBRC  &hml LSHFT LBKT  &kp EQUAL    &kp MINUS  &hmr RSHFT RBKT  &hmr RGUI RBRC  &hmr RALT RPAR  &hmr LCTRL SEMI  &kp DQT
 &trans  &trans           &kp HASH        &kp TILDE       &trans           &trans       &trans     &kp EXCL         &kp LT          &kp GT          &kp QMARK        &trans
-                                         &trans          &trans           &trans       &trans     &trans           &trans
+                                         &trans          &trans           &kp BSPC     &kp RET    &trans           &trans
             >;
         };
 
