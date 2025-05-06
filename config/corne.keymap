@@ -30,7 +30,7 @@
 
         ret_combo_r {
             bindings = <&hml RG(RALT) RET>;
-            key-positions = <20 21>;
+            key-positions = <21 19>;
         };
 
         nums_lay_combo {
@@ -40,7 +40,7 @@
 
         ret_combo_l {
             bindings = <&hml LS(LGUI) RET>;
-            key-positions = <15 14>;
+            key-positions = <14 16>;
         };
     };
 
