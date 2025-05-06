@@ -23,11 +23,6 @@
             key-positions = <19 20>;
         };
 
-        magic_layer_combo {
-            bindings = <&mo 4>;
-            key-positions = <38 39>;
-        };
-
         bspc_combo {
             bindings = <&hml LS(LGUI) BSPC>;
             key-positions = <15 16>;
@@ -108,6 +103,24 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <36 37 38 39 40 41 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29>;
         };
+
+        comma_semi: comma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_SEMI";
+            bindings = <&kp COMMA>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_colon: dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_COLON";
+            bindings = <&kp DOT>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -124,7 +137,7 @@
             bindings = <
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y      &kp U         &kp I        &kp O        &kp P              &kp END
 &lt 2 BSPC  &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H      &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
-&lt 4 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N      &kp M         &kp COMMA    &kp DOT      &kp FSLH           &lt 4 RBKT
+&lt 4 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N      &kp M         &comma_semi  &dot_colon   &kp FSLH           &lt 4 RBKT
                                        &lt 3 ESC    &lt 2 TAB     &lt 1 SPACE    &lt 1 RET  &lt 2 BSPC    &lt 3 DEL
             >;
         };
