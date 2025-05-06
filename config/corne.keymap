@@ -18,14 +18,24 @@
             key-positions = <16 19>;
         };
 
-        esc_combo {
-            bindings = <&hmr RS(RGUI) ESC>;
+        bscp_combo {
+            bindings = <&hmr RS(RGUI) BSPC>;
             key-positions = <19 20>;
         };
 
-        bspc_combo {
-            bindings = <&hml LS(LGUI) BSPC>;
+        esc_combo {
+            bindings = <&hml LS(LGUI) ESC>;
             key-positions = <15 16>;
+        };
+
+        ret_combo {
+            bindings = <&hml RG(RALT) RET>;
+            key-positions = <20 21>;
+        };
+
+        nums_lay_combo {
+            bindings = <&mo 3>;
+            key-positions = <38 39>;
         };
     };
 
@@ -138,7 +148,7 @@
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y      &kp U         &kp I        &kp O        &kp P              &kp END
 &lt 2 BSPC  &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H      &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
 &lt 4 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N      &kp M         &comma_semi  &dot_colon   &kp FSLH           &lt 4 RBKT
-                                       &lt 3 ESC    &lt 2 TAB     &lt 1 SPACE    &lt 1 RET  &lt 2 BSPC    &lt 3 DEL
+                                       &lt 3 BSPC   &lt 2 TAB     &lt 1 SPACE    &lt 1 ESC  &lt 2 RET     &lt 3 DEL
             >;
         };
 
@@ -172,9 +182,9 @@
         nums_layer {
             bindings = <
 &trans  &trans  &kp N9        &kp N8        &kp N7         &trans    &trans  &kp N7         &kp N8        &kp N9        &trans  &trans
-&trans  &trans  &hml LALT N6  &hml LCMD N5  &hml LSHFT N4  &trans    &trans  &hmr RSHFT N4  &hmr RCMD N5  &hmr RALT N6  &trans  &trans
+&trans  &trans  &hml LALT N6  &hml LCMD N5  &hml LSHFT N4  &kp N0    &kp N0  &hmr RSHFT N4  &hmr RCMD N5  &hmr RALT N6  &trans  &trans
 &trans  &trans  &kp N3        &kp N2        &kp N1         &trans    &trans  &kp N1         &kp N2        &kp N3        &trans  &trans
-                              &trans        &kp N0         &trans    &trans  &kp N0         &trans
+                              &trans        &trans         &trans    &trans  &trans         &trans
             >;
 
             label = "Numbers";
