@@ -19,13 +19,18 @@
         };
 
         esc_combo {
-            bindings = <&cmd_sft_esc RS(RGUI) ESC>;
+            bindings = <&hmr RS(RGUI) ESC>;
             key-positions = <19 20>;
         };
 
         magic_layer_combo {
             bindings = <&mo 4>;
             key-positions = <38 39>;
+        };
+
+        bspc_combo {
+            bindings = <&hml LS(LGUI) BSPC>;
+            key-positions = <15 16>;
         };
     };
 
@@ -133,9 +138,9 @@
 
             display-name = "Symbols";
             bindings = <
-&trans  &kp PIPE         &kp AT          &kp UNDER       &kp DLLR         &kp PRCNT    &kp CARET  &kp PLUS         &kp ASTERISK    &kp GRAVE       &kp QMARK        &trans
+&trans  &kp PIPE         &kp AT          &kp UNDER       &kp DLLR         &kp PRCNT    &kp CARET  &kp PLUS         &kp ASTERISK    &kp GRAVE       &trans           &trans
 &trans  &hml LCTRL AMPS  &hml LALT LPAR  &hml LGUI LBRC  &hml LSHFT LBKT  &kp EQUAL    &kp MINUS  &hmr RSHFT RBKT  &hmr RGUI RBRC  &hmr RALT RPAR  &hmr LCTRL SEMI  &kp DQT
-&trans  &trans           &kp HASH        &kp TILDE       &trans           &trans       &trans     &kp EXCL         &kp LT          &kp GT          &trans           &trans
+&trans  &trans           &kp HASH        &kp TILDE       &trans           &trans       &trans     &kp EXCL         &kp LT          &kp GT          &kp QMARK        &trans
                                          &trans          &trans           &trans       &trans     &trans           &trans
             >;
         };
