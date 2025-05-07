@@ -24,7 +24,7 @@
         };
 
         df_combo {
-            bindings = <&hml LS(LGUI) ESC>;
+            bindings = <&hml LS(LGUI) RET>;
             key-positions = <15 16>;
         };
 
@@ -39,7 +39,7 @@
         };
 
         sf_combo {
-            bindings = <&hml LS(LGUI) RET>;
+            bindings = <&hml LS(LGUI) ESC>;
             key-positions = <14 16>;
         };
     };
@@ -152,7 +152,7 @@
             bindings = <
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y       &kp U         &kp I        &kp O        &kp P              &kp END
 &lt 2 ESC   &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H       &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
-&lt 4 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &comma_semi  &dot_colon   &kp FSLH           &lt 4 RBKT
+&lt 4 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &kp COMMA    &kp DOT      &kp FSLH           &lt 4 RBKT
                                        &lt 3 BSPC   &lt 2 TAB     &lt 1 SPACE    &lt 1 BSPC  &lt 2 RET     &lt 3 DEL
             >;
         };
