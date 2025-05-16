@@ -21,21 +21,25 @@
         jk_combo {
             bindings = <&hmr RS(RGUI) ESC>;
             key-positions = <19 20>;
+            layers = <0>;
         };
 
         df_combo {
-            bindings = <&hml LS(LGUI) RET>;
+            bindings = <&hml LS(LGUI) TAB>;
             key-positions = <15 16>;
+            layers = <0>;
         };
 
-        jl_combo {
-            bindings = <&hml RG(RALT) RET>;
-            key-positions = <21 19>;
+        jk_combo_symbs {
+            bindings = <&hmr RS(RGUI) BSPC>;
+            key-positions = <19 20>;
+            layers = <1>;
         };
 
-        sf_combo {
-            bindings = <&hml LS(LGUI) ESC>;
-            key-positions = <14 16>;
+        df_combo_symbs {
+            bindings = <&hml LS(LGUI) SPACE>;
+            key-positions = <15 16>;
+            layers = <1>;
         };
     };
 
@@ -147,8 +151,8 @@
             bindings = <
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y       &kp U         &kp I        &kp O        &kp P              &kp END
 &lt 3 ESC   &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H       &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
-&lt 4 LBKT  &kp Z         &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &kp COMMA    &kp DOT      &lt 4 SLASH        &lt 5 RBKT
-                                       &lt 4 BSPC   &lt 2 TAB     &lt 1 SPACE    &lt 1 BSPC  &lt 2 RET     &kp DEL
+&lt 5 LBKT  &lt 4 Z       &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &kp COMMA    &kp DOT      &lt 4 SLASH        &lt 5 RBKT
+                                       &lt 4 BSPC   &lt 2 RET     &lt 1 SPACE    &lt 1 BSPC  &lt 2 RET     &kp DEL
             >;
         };
 
@@ -170,10 +174,10 @@
 
         nav_layer {
             bindings = <
-&trans  &trans  &trans    &trans     &trans     &trans    &trans    &kp LG(LEFT)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LG(RIGHT)  &trans
-&trans  &trans  &kp LALT  &kp LGUI   &kp LSHFT  &trans    &kp LEFT  &kp DOWN      &kp UP        &kp RIGHT      &trans         &trans
-&trans  &trans  &trans    &kp LG(C)  &kp LG(V)  &trans    &trans    &kp LG(BSPC)  &kp LA(BSPC)  &kp LA(DEL)    &kp LG(DEL)    &trans
-                          &kp DEL    &kp BSPC   &trans    &kp BSPC  &kp DEL       &trans
+&trans  &trans  &trans          &kp UP          &trans            &trans    &trans    &kp LG(LEFT)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LG(RIGHT)  &trans
+&trans  &trans  &hml LALT LEFT  &hml LGUI DOWN  &hml LSHFT RIGHT  &trans    &kp LEFT  &kp DOWN      &kp UP        &kp RIGHT      &trans         &trans
+&trans  &trans  &trans          &kp LG(C)       &kp LG(V)         &trans    &trans    &kp LG(BSPC)  &kp LA(BSPC)  &kp LA(DEL)    &kp LG(DEL)    &trans
+                                &kp DEL         &kp BSPC          &trans    &kp BSPC  &kp DEL       &trans
             >;
 
             label = "Nav";
