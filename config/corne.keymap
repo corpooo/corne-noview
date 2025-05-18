@@ -25,7 +25,7 @@
         };
 
         df_combo {
-            bindings = <&hml LS(LGUI) TAB>;
+            bindings = <&hml LS(LGUI) ESC>;
             key-positions = <15 16>;
             layers = <0>;
         };
@@ -150,7 +150,7 @@
             display-name = "Base";
             bindings = <
 &kp HOME    &kp Q         &kp W        &kp E        &kp R         &kp T          &kp Y       &kp U         &kp I        &kp O        &kp P              &kp END
-&lt 3 ESC   &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H       &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
+&lt 3 TAB   &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G          &kp H       &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr_semi LCTRL 0  &kp SQT
 &lt 5 LBKT  &lt 4 Z       &kp X        &kp C        &kp V         &kp B          &kp N       &kp M         &kp COMMA    &kp DOT      &lt 4 SLASH        &lt 5 RBKT
                                        &lt 4 BSPC   &lt 2 RET     &lt 1 SPACE    &lt 1 BSPC  &lt 2 RET     &kp DEL
             >;
